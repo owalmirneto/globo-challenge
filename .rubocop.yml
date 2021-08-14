@@ -1,0 +1,15 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Layout/LineLength:
+  Max: 80
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0
+  Exclude:
+    - bin/**/*
+  inherit_mode:
+    merge:
+      - Exclude
