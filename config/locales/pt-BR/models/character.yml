@@ -1,0 +1,11 @@
+pt-BR:
+  activemodel:
+    models:
+      character:
+        one: Personagem
+        other: Personagens
+    attributes:
+      character:
+        name: 'Nome'
+        energy: 'Energia'
+        power: 'Poder'

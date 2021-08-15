@@ -23,9 +23,14 @@ class StartRound
   end
 
   def messages
-    [t('round.attack', hero: hero.name, enemy: enemy.name).cyan.bold,
+    [t('round.attack', **attack_message_params).cyan.bold,
      t("luck_factor.#{factor.type}", hp: damage),
      winner_message].compact
+  end
+
+  def attack_message_params
+    { hero_name: hero.name, enemy_name: enemy.name,
+      hero_energy: hero.energy, enemy_energy: enemy.energy + damage }
   end
 
   private

@@ -15,7 +15,7 @@ class StartBattle
   end
 
   def valid?
-    @first.valid? && @second.valid?
+    @first.valid? & @second.valid?
   end
 
   def perform
@@ -23,21 +23,7 @@ class StartBattle
 
     @messages = round_start_messages
 
-    hero = @first
-    enemy = @second
-
-    loop do
-      round = StartRound.call(hero.dup, enemy.dup)
-
-      @messages += round.messages
-
-      break unless round.enemy_alive?
-
-      hero = round.enemy
-      enemy = round.hero
-    end
-
-    puts @messages
+    start_rounds(@first, @second)
 
     self
   end
@@ -51,9 +37,13 @@ class StartBattle
   end
 
   def mount_errors
-    [@first, @second].each do |character|
-      character.errors.messages.each do |label, messages|
-        @errors << "× #{label} #{messages.first}".red.bold
+    [@first, @second].each_with_index do |character, key|
+      next if character.valid?
+
+      @errors << "#{key+1}°) personagem inválido".yellow.bold
+
+      character.errors.full_messages.each do |message|
+        @errors << "× #{message}".red.bold
       end
     end
 
@@ -62,6 +52,23 @@ class StartBattle
 
   def round_start_messages
     [t('title.game_started').green.bold,
-     t('round.start', character1: @first.name, character2: @second.name)]
+     t('round.start', **start_message_params)]
+  end
+
+  def start_message_params
+    { character1: @first.name, character2: @second.name }
+  end
+
+  def start_rounds(hero, enemy)
+    loop do
+      round = StartRound.call(hero.dup, enemy.dup)
+
+      @messages += round.messages
+
+      break unless round.enemy_alive?
+
+      hero = round.enemy
+      enemy = round.hero
+    end
   end
 end

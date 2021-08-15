@@ -16,10 +16,11 @@ pt-BR:
 
   round:
     start: 'Batalha entre %{character1} e %{character2}'
-    attack: '%{hero} atacou %{enemy}'
+    attack: '%{hero_name}(%{hero_energy}) atacou %{enemy_name}(%{enemy_energy})'
     finish: 'Jogo acabou, o vencedor foi %{winner} com HP restante de %{hp}'
 
   errors:
     messages:
       blank: 'não pode ficar em branco'
       not_a_number: 'não é um número'
+      greater_than: 'deve ser maior que %{count}'

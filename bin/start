@@ -10,12 +10,17 @@ loop do
   [:first, :second].each do |field|
     puts t("labels.#{field}_character").blue.bold
 
-    info_characters[field] = gets.chomp
+    # info_characters[field] = gets.chomp
+    info_characters[field] = "#{field} 1000 30"
   end
 
   battle = StartBattle.call(info_characters)
 
-  break if battle.valid?
+    puts battle.messages
+  if battle.valid?
+    break
+  end
+  puts battle.errors
 
   puts t('labels.try_again').yellow.bold
 end

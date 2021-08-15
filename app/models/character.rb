@@ -2,14 +2,13 @@
 
 class Character
   include ActiveModel::Validations
+  extend ActiveModel::Naming
 
   attr_accessor :name, :energy, :power
 
   validates :name, presence: true
-  validates :energy, presence: true,
-                     numericality: { only_integer: true, greater_than: 0 }
-  validates :power, presence: true,
-                    numericality: { only_integer: true, greater_than: 0 }
+  validates :energy, presence: true, numericality: { greater_than: 0 }
+  validates :power, presence: true, numericality: { greater_than: 0 }
 
   def initialize(attributes = {})
     @name = attributes[:name]
