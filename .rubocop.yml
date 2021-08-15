@@ -5,6 +5,13 @@ require:
 Layout/LineLength:
   Max: 80
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Style/Documentation:
+  Enabled: false
+
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.0

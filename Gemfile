@@ -7,6 +7,10 @@ ruby File.read('.ruby-version').strip
 
 # https://github.com/ruby-i18n/i18n#usage
 gem 'i18n', '~> 1.8'
+# https://github.com/fazibear/colorize#usage
+gem 'colorize', '~> 0.8.1'
+# https://github.com/rails/rails/tree/main/activemodel
+gem 'activemodel', '~> 6.1', '>= 6.1.4'
 
 group :development, :test do
   # https://github.com/pry/pry
@@ -17,6 +21,8 @@ group :development, :test do
   gem 'rubocop-rspec', require: false
   # https://github.com/rubocop/rubocop-performance#usage
   gem 'rubocop-performance', require: false
+  # https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#setup
+  gem 'factory_bot', '~> 6.2', require: false
 end
 
 group :test do
