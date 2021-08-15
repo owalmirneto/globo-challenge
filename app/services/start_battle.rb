@@ -40,7 +40,7 @@ class StartBattle
     [@first, @second].each_with_index do |character, key|
       next if character.valid?
 
-      @errors << "#{key + 1}°) personagem inválido".yellow.bold
+      @errors << t('labels.invalid_character', number: key + 1).yellow
 
       character.errors.full_messages.each do |message|
         @errors << "× #{message}".red.bold

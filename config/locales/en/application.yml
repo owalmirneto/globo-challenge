@@ -7,6 +7,7 @@ en:
     first_character: 'Choose your first character:'
     second_character: 'Choose your second character:'
     try_again: 'Try again:'
+    invalid_character: '%{number}°) Invalid character'
 
   luck_factor:
     missed: 'Miss - %{hp} HP'
