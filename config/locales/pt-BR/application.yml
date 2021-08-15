@@ -1,0 +1,27 @@
+pt-BR:
+  title:
+    app: 'Breath of Fantasy'
+    game_started: 'O jogo começou'
+
+  labels:
+    first_character: 'Entre a primeira personagem:'
+    second_character: 'Entre a segunda personagem:'
+    try_again: 'Tente novamente:'
+    invalid_character: '%{number}°) Personagem inválido'
+
+  luck_factor:
+    missed: 'Errou - %{hp} HP'
+    normal: 'Normal - %{hp} HP'
+    lucky: 'Sorte!!! - %{hp} HP'
+    critical: 'Crítico! - %{hp} HP'
+
+  round:
+    start: 'Batalha entre %{character1} e %{character2}'
+    attack: '%{hero_name}(%{hero_energy}) atacou %{enemy_name}(%{enemy_energy})'
+    finish: 'Jogo acabou, o vencedor foi %{winner} com HP restante de %{hp}'
+
+  errors:
+    messages:
+      blank: 'não pode ficar em branco'
+      not_a_number: 'não é um número'
+      greater_than: 'deve ser maior que %{count}'

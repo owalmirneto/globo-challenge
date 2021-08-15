@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require './config/setup'
+
+info_characters = {}
+
+puts t('title.app').light_blue
+puts '-----------------'
+
+loop do
+  [:first, :second].each do |field|
+    puts t("labels.#{field}_character").blue.bold
+
+    info_characters[field] = gets.chomp
+  end
+
+  battle = StartBattle.call(info_characters)
+
+  puts battle.messages
+
+  break if battle.valid?
+
+  puts battle.errors
+
+  puts t('labels.try_again').yellow.bold
+end
+puts '--------------'
