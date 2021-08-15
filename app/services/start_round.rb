@@ -12,6 +12,9 @@ class StartRound
     @enemy = enemy
   end
 
+  alias next_hero enemy
+  alias next_enemy hero
+
   def perform
     enemy.energy -= damage
 
@@ -23,7 +26,7 @@ class StartRound
   end
 
   def messages
-    [t('round.attack', **attack_message_params).cyan.bold,
+    [t('round.attack', **attack_message_params).cyan,
      t("luck_factor.#{factor.type}", hp: damage),
      winner_message].compact
   end
@@ -38,8 +41,8 @@ class StartRound
   def winner_message
     return if enemy_alive?
 
-    ['---'.yellow.bold,
-     t('round.finish', winner: hero.name, hp: hero.energy).green.bold]
+    ['---'.yellow,
+     t('round.finish', winner: hero.name, hp: hero.energy).green.blink]
   end
 
   def damage

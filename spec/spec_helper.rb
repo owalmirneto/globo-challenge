@@ -2,6 +2,8 @@
 
 require './config/setup'
 
+require 'rspec'
+
 Dir['./spec/support/**/*.rb'].each { |f| require f }
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

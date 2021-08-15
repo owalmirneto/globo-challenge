@@ -17,6 +17,6 @@ class GenerateLuckFactor
   private
 
   def current_luck_type
-    LUCK_TYPES.select { |_type, factors| factors.to_a.include?(@luck) }
+    LUCK_TYPES.select { |_type, factors| factors.to_a.include?(luck) }
   end
 end

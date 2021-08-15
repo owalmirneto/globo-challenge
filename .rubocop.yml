@@ -9,7 +9,13 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*
 
+RSpec/SubjectStub:
+  Enabled: false
+
 Style/Documentation:
+  Enabled: false
+
+Style/WordArray:
   Enabled: false
 
 AllCops:

@@ -40,7 +40,7 @@ class StartBattle
     [@first, @second].each_with_index do |character, key|
       next if character.valid?
 
-      @errors << "#{key+1}°) personagem inválido".yellow.bold
+      @errors << "#{key + 1}°) personagem inválido".yellow.bold
 
       character.errors.full_messages.each do |message|
         @errors << "× #{message}".red.bold
@@ -51,8 +51,8 @@ class StartBattle
   end
 
   def round_start_messages
-    [t('title.game_started').green.bold,
-     t('round.start', **start_message_params)]
+    ['---'.yellow, t('title.game_started').green,
+     t('round.start', **start_message_params).blue, '---'.yellow]
   end
 
   def start_message_params
@@ -67,8 +67,8 @@ class StartBattle
 
       break unless round.enemy_alive?
 
-      hero = round.enemy
-      enemy = round.hero
+      hero = round.next_hero
+      enemy = round.next_enemy
     end
   end
 end

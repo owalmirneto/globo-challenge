@@ -28,4 +28,6 @@ end
 group :test do
   # https://github.com/rspec/rspec#install
   gem 'rspec', '~> 3.10'
+  # https://github.com/faker-ruby/faker#usage
+  gem 'faker', '~> 2.18'
 end
